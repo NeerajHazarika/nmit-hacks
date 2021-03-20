@@ -1,0 +1,358 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            .form{width:500px;border-radius:20px;height:135vh;}
+.login-heading{font-size:40px;font-weight: 700;text-transform: capitalize;font-family:Arial, Helvetica, sans-serif}
+.username{text-transform: capitalize;font-family: Arial, Helvetica, sans-serif;font-size:15px;}
+input{width:100%;border:1px solid transparent;box-shadow:none}
+.facebook-icon,.twitter-icon,.google-icon{border:1px solid transparent;padding:2% 4%;margin-left:2%;border-radius:50px;
+    background-color:#3b5998;color:white;font-size:25px;}
+.twitter-icon{padding:2% 3%;background-color: #1da1f2;}
+.google-icon{padding:2% 3.5%;background-color: #ea4335;}
+.facebook-icon:hover,.twitter-icon:hover,.google-icon:hover{background-color:rgb(80, 75, 75);transition:0.5s linear;}
+.hr-1,.hr-2{border:1px solid rgb(194, 187, 187);transition:0.2s linear;}
+.input-1,.input-2{font-size:18px;font-weight: 500;font-family: Arial, Helvetica, sans-serif;}
+#user{font-size:20px;color:rgb(194, 187, 187)}
+#lock{font-size:20px;color:rgb(194, 187, 187)}
+.login-button,.signup-button{border-radius:30px;text-transform: uppercase;font-weight: 600;padding:3% 3%;background-size:300% 100%;
+    background-image: linear-gradient(to right,fuchsia,deepskyblue,fuchsia);font-family: Arial, Helvetica, sans-serif;transition:all 0.5s linear;}
+    .login-button:hover,.signup-button:hover{background-position: 100% 0%;transition: all 0.5s linear;}
+a{color:rgb(148, 141, 141)}
+a:hover{text-decoration: none;}
+.forget-password{font-size:15px;font-weight:600;color:rgb(148, 141, 141)}
+.forget-password:hover,.sign-up:hover{color: blueviolet;}
+.sign-up{text-transform: uppercase;font-family: Arial, Helvetica, sans-serif;font-size:13px;}
+.show-me{display:none}
+*:focus {
+    outline: none;
+}
+@media screen and (max-width:550px){
+    .form{width:450px}
+}
+@media screen and (max-width:425px){
+    .form{width:380px}
+}
+@media screen and (max-width:375px){
+    .form{width:330px}
+}
+@media screen and (max-width:320px){
+    .form{margin-left:-5%;width:318px}
+}
+        </style>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script lang="js">
+            $(document).ready(function(){
+    $(".input-1").click(function(){
+        $(".hr-1").css("border-color","black");
+        $("#user").css("color","blueviolet");
+    })
+    $(".input-2").click(function(){
+        $(".hr-2").css("border-color","black");
+        $("#lock").css("color","blueviolet")
+    })
+    $(".login-button").click(function(){
+        $(".hr-1,.hr-2").css("border-color","rgb(194, 187, 187)");
+        $("#lock,#user").css("color","grey");
+    })
+    $(".hide,.hide-1,.first-name-hide,.last-name-hide,.email-hide,.password-signup-hide,.confirm-password-signup-hide").css("color","red")
+    $(".sign-up").click(function(){
+        $(".hide-me").css("display","none");
+        $(".show-me").css("display","block");
+        $(".form").css("height","188vh")
+    })
+    $(".login-page").click(function(){
+        $(".show-me").css("display","none");
+        $(".hide-me").css("display","block");
+        $(".form").css("height","135vh")
+    })
+    $(".login-button").click(function(){
+    var name= $(".input-1").val();                   
+    var check= /^[a-zA-Z\s]+$/;
+    //username for login
+    if(name==""){
+        $(".hide").text("Enter your name");
+        return false;
+    }
+    else{true;}
+    if(!name.match(check)){
+        $(".hide").text("Enter your valid name");
+            return false;
+    }
+    else{true;}
+    if(name.length>20){
+        $(".hide").text("More than 20 char. is not allowed");
+        return false;
+        }
+        else{ $(".hide").text("");}
+    //username for login
+    //pass for login
+    var pass= $(".input-2").val();
+    if(pass==""){
+        $(".hide-1").text("Enter your password");
+        return false;
+    }
+    else{ $(".hide-1").text("");}
+    })
+    //pass for login
+                                                         //for sign-up btn
+    $(".signup-button").click(function(){
+    var lastname=$(".last-name").val();  
+    var firstname=$(".first-name").val(); 
+    var check= /^[a-zA-Z\s]+$/;
+           //firstname for sign-up
+    if(firstname==""){
+        $(".first-name-hide").text("Enter your name");
+        return false;
+    }
+    else{true;}
+    if(!firstname.match(check)){
+        $(".first-name-hide").text("Enter your valid name");
+            return false;
+    }
+    else{true;}
+    if(firstname.length>20){
+        $(".first-name-hide").text("More than 20 char. is not allowed");
+        return false;
+        }
+        else{ $(".first-name-hide").text("");}
+    //firstname for sign-up
+    //lastname for sign-up
+    if(lastname==""){
+        $(".last-name-hide").text("Enter your name");
+        return false;
+    }
+    else{true;}
+    if(!lastname.match(check)){
+        $(".last-name-hide").text("Enter your valid name");
+            return false;
+    }
+    else{true;}
+    if(lastname.length>20){
+        $(".last-name-hide").text("More than 20 char. is not allowed");
+        return false;
+        }
+        else{ $(".last-name-hide").text("");}
+    //lastname for sign-up
+    //email-id for sign-up
+    var check_email=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    var email=$(".email").val();
+    if(email==""){
+        $(".email-hide").text("Enter your email id");
+        return false;
+    }
+    else{true}
+    if(!email.match(check_email)){
+        $(".email-hide").text("Enter your valid email id");
+        return false;
+    }
+    else{ $(".email-hide").text("");}
+    //email-id for sign-up
+     //pass for sign-up
+    var password = $(".password-signup").val();
+    if(password==""){
+        $(".password-signup-hide").text("Enter your password");
+        return false;
+    }
+    else{ $(".password-signup-hide").text("");}
+    //pass for sign-up̥
+    //confirm-pass for sign-up
+    var confirmPassword = $(".confirm-password-signup").val();
+    if(confirmPassword==""){
+        $(".confirm-password-signup-hide").text("Enter your passw̥ord");
+        return false;
+    }
+    if(!confirmPassword.match(password)){
+        $(".confirm-password-signup-hide").text("Your password did not match");
+        return false;
+    }
+    else{ $(".confirm-password-signup-hide").text("");}
+    //confirm-pass for sign-up
+    })
+})
+        </script>
+    </head>
+    <body style="background-image:url('Images/login-background.jpg');background-size: cover;">
+        <div class="container">
+            <div class="container form bg-white pt-5 mt-4 mb-3">
+                                                            <!--change after click on sign up-->
+                <p class="text-center login-heading hide-me">login</p>
+                <div class="container hide-me">
+                    <div class="row">
+                        <div class="col mt-4 pl-5 pr-5">
+                            <p class="username">username</p>
+                            <div class="row mt-4">
+                                <div class="col-2 text-center pt-1 pr-0">
+                                    <i class="fa fa-user-o" aria-hidden="true" id="user"></i>
+                                </div>
+                                <div class="col-10 pl-0">
+                                    <input type="text" placeholder="Type your username" class='input-1'>
+                                </div>
+                            </div>
+                            <hr class="hr-1">
+                            <div class="hide"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col mt-4 pl-5 pr-5">
+                            <p class="username">Password</p>
+                            <div class="row mt-4">
+                                <div class="col-2 text-center pt-1 pr-0">
+                                    <i class="fa fa-lock" aria-hidden="true" id="lock"></i>
+                                </div>
+                                <div class="col-10 pl-0">
+                                    <input type="password" placeholder="Type your password" class="input-2">
+                                </div>
+                            </div>
+                            <hr class="hr-2">
+                            <div class="hide-1"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-right pr-5">
+                            <a href="#"><span class="forget-password">Forget password?</span></a>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col pl-5 pr-5">
+                            <a href="login-ecommerce.html"><span class="btn btn-block text-white login-button">login</span></a>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col text-center">
+                            <span style="text-transform: capitalize;font-family: Arial, Helvetica, sans-serif;font-size:15px;font-weight:600;color:rgb(148, 141, 141)">or sign up using</span>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class='col text-center'>
+                            <span class="facebook-icon"><i class="fa fa-facebook" aria-hidden="true"></i></span>
+                            <span class="twitter-icon"><i class="fa fa-twitter" aria-hidden="true"></i></span>
+                            <span class="google-icon"><i class="fa fa-google" aria-hidden="true"></i></span>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col text-center">
+                            <span style="text-transform: capitalize;font-family: Arial, Helvetica, sans-serif;font-size:15px;font-weight:600;color:rgb(148, 141, 141)">or sign up using</span>
+                        </div>
+                        <div class="col-12 text-center pt-3">
+                            <a href="#"><span class="sign-up">sign up</span></a>
+                        </div>
+                    </div>
+                </div>
+                                                                        <!--change it-->
+                <p class="text-center login-heading show-me">sign up</p>
+                <div class="row show-me">
+                    <div class="col mt-4 pl-5 pr-5">
+                        <p class="username">First name</p>
+                        <div class="row mt-4">
+                            <div class="col-2 text-center pt-1 pr-0">
+                                <i class="fa fa-user-o" aria-hidden="true" id="user"></i>
+                            </div>
+                            <div class="col-10 pl-0">
+                                <input type="text" placeholder="Type your username" class='first-name'>
+                            </div>
+                        </div>
+                        <hr class="hr-1">
+                        <div class="first-name-hide"></div>
+                    </div>
+                </div>
+                <div class="row show-me">
+                    <div class="col mt-4 pl-5 pr-5">
+                        <p class="username">Last name</p>
+                        <div class="row mt-4">
+                            <div class="col-2 text-center pt-1 pr-0">
+                                <i class="fa fa-user-o" aria-hidden="true" id="user"></i>
+                            </div>
+                            <div class="col-10 pl-0">
+                                <input type="text" placeholder="Type your username" class='last-name'>
+                            </div>
+                        </div>
+                        <hr class="hr-1">
+                        <div class="last-name-hide"></div>
+                    </div>
+                </div>
+                <div class="row show-me">
+                    <div class="col mt-4 pl-5 pr-5">
+                        <p class="username">Email-id</p>
+                        <div class="row mt-4">
+                            <div class="col-2 text-center pt-1 pr-0">
+                                <i class="fa fa-envelope-o" aria-hidden="true" id="user"></i>
+                            </div>
+                            <div class="col-10 pl-0">
+                                <input type="text" placeholder="Type your username" class='email'>
+                            </div>
+                        </div>
+                        <hr class="hr-1">
+                        <div class="email-hide"></div>
+                    </div>
+                </div>
+                <div class="row show-me">
+                    <div class="col mt-4 pl-5 pr-5">
+                        <p class="username">Password</p>
+                        <div class="row mt-4">
+                            <div class="col-2 text-center pt-1 pr-0">
+                                <i class="fa fa-lock" aria-hidden="true" id="lock"></i>
+                            </div>
+                            <div class="col-10 pl-0">
+                                <input type="password" placeholder="Type your password" class="password-signup">
+                            </div>
+                        </div>
+                        <hr class="hr-2">
+                        <div class="password-signup-hide"></div>
+                    </div>
+                </div>
+                <div class="row show-me">
+                    <div class="col mt-4 pl-5 pr-5">
+                        <p class="username">Confirm-password</p>
+                        <div class="row mt-4">
+                            <div class="col-2 text-center pt-1 pr-0">
+                                <i class="fa fa-lock" aria-hidden="true" id="lock"></i>
+                            </div>
+                            <div class="col-10 pl-0">
+                                <input type="password" placeholder="Type your password" class="confirm-password-signup">
+                            </div>
+                        </div>
+                        <hr class="hr-2">
+                        <div class="confirm-password-signup-hide"></div>
+                    </div>
+                </div>
+                <div class="row show-me">
+                    <div class="col pl-5">
+                        <a href="#"><span class="forget-password">I accept the <span style="text-transform:capitalize;color:blue">terms of use</span>&
+                            <span style="text-transform:capitalize;color:blue">privacy policy</span> </a>
+                    </div>
+                </div>
+                <div class="row mt-4 show-me">
+                    <div class="col pl-5 pr-5">
+                        <a href="login-ecomarce.html"><span class="btn btn-block text-white signup-button">sign up</span></a>
+                    </div>
+                </div>
+                <div class="row mt-5 show-me">
+                    <div class="col text-center">
+                        <span style="text-transform: capitalize;font-family: Arial, Helvetica, sans-serif;font-size:15px;font-weight:600;color:rgb(148, 141, 141)">or sign up using</span>
+                    </div>
+                </div>
+                <div class="row mt-5 show-me">
+                    <div class='col text-center'>
+                        <span class="facebook-icon"><i class="fa fa-facebook" aria-hidden="true"></i></span>
+                        <span class="twitter-icon"><i class="fa fa-twitter" aria-hidden="true"></i></span>
+                        <span class="google-icon"><i class="fa fa-google" aria-hidden="true"></i></span>
+                    </div>
+                </div>
+                <div class="row mt-5 show-me">
+                    <div class="col text-center">
+                        <span style="text-transform: capitalize;font-family: Arial, Helvetica, sans-serif;font-size:15px;font-weight:600;color:rgb(148, 141, 141)">already have an account</span>
+                    </div>
+                    <div class="col-12 text-center pt-3">
+                        <a href="#"><span class="login-page">login</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
