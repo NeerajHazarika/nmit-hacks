@@ -21,5 +21,5 @@ from django.urls import path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', try_to_login), # this route should be of form login?username=username_str&password=password_str
-    path('home/', views.home) 
+    path('', views.home) 
 ]
