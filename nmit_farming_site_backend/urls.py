@@ -1,4 +1,5 @@
 from utils.views import try_to_login
+from utils import views
 """nmit_farming_site_backend URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -19,5 +20,6 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login/', try_to_login), # this route should be of form login?username=username_str&password=password_str 
+    path('login/', try_to_login), # this route should be of form login?username=username_str&password=password_str
+    path('home/', views.home) 
 ]

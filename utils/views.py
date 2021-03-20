@@ -8,4 +8,6 @@ def try_to_login(request):
     if username==None or password==None:
         return render(None, "login-form.html")
     return HttpResponse("Yes")
-    
+
+def home(request):
+    return render(request,"ecommerce.html")
